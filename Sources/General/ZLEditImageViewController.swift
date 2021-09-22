@@ -273,7 +273,7 @@ public class ZLEditImageViewController: UIViewController {
     
     self.topShadowView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 150)
     self.topShadowLayer.frame = self.topShadowView.bounds
-    self.cancelBtn.frame = CGRect(x: 15, y: insets.top+10, width: 28, height: 28)
+    self.cancelBtn.frame = CGRect(x: self.view.frame.width-15-28, y: insets.top+10, width: 28, height: 28)
     
     self.bottomShadowView.frame = CGRect(x: 0, y: self.view.frame.height-140-insets.bottom, width: self.view.frame.width, height: 140+insets.bottom)
     self.bottomShadowLayer.frame = self.bottomShadowView.bounds
@@ -404,7 +404,7 @@ public class ZLEditImageViewController: UIViewController {
     self.topShadowView.layer.addSublayer(self.topShadowLayer)
     
     self.cancelBtn = UIButton(type: .custom)
-    self.cancelBtn.setImage(getImage("ic_back"), for: .normal)
+    self.cancelBtn.setImage(getImage("ic_close"), for: .normal)
     self.cancelBtn.addTarget(self, action: #selector(cancelBtnClick), for: .touchUpInside)
     self.cancelBtn.adjustsImageWhenHighlighted = false
     self.cancelBtn.zl_enlargeValidTouchArea(inset: 30)
@@ -436,7 +436,7 @@ public class ZLEditImageViewController: UIViewController {
     self.doneBtn.titleLabel?.font = ZLImageEditorLayout.bottomToolTitleFont
     self.doneBtn.backgroundColor = ZLImageEditorConfiguration.default().editDoneBtnBgColor
     //        self.doneBtn.setTitle(localLanguageTextValue(.editFinish), for: .normal)
-    self.doneBtn.setImage(getImage("ic_forward_arrow"), for: .normal)
+    self.doneBtn.setImage(getImage("ic_checkmark"), for: .normal)
     self.doneBtn.addTarget(self, action: #selector(doneBtnClick), for: .touchUpInside)
     self.doneBtn.layer.masksToBounds = true
     self.doneBtn.layer.cornerRadius = 22 // ZLImageEditorLayout.bottomToolBtnCornerRadius
