@@ -287,7 +287,7 @@ public class ZLEditImageViewController: UIViewController {
     
     let doneBtnH = ZLImageEditorLayout.bottomToolBtnH
     let doneBtnW = localLanguageTextValue(.editFinish).boundingRect(font: ZLImageEditorLayout.bottomToolTitleFont, limitSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: doneBtnH)).width + 20
-//    self.doneBtn.frame = CGRect(x: self.view.frame.width-20-doneBtnW, y: toolY-2, width: doneBtnW, height: doneBtnH)
+    //    self.doneBtn.frame = CGRect(x: self.view.frame.width-20-doneBtnW, y: toolY-2, width: doneBtnW, height: doneBtnH)
     self.doneBtn.frame = CGRect(x: self.view.frame.width-20-44, y: toolY-2, width: 44, height: 44)
     
     self.editToolCollectionView.frame = CGRect(x: 20, y: toolY, width: self.view.bounds.width - 20 - 20 - doneBtnW - 20, height: 30)
@@ -670,22 +670,23 @@ public class ZLEditImageViewController: UIViewController {
       }
     }
     
-//    var hasEdit = true
+    var hasEdit = true
     if self.drawPaths.isEmpty, self.editRect.size == self.imageSize, self.angle == 0, self.mosaicPaths.isEmpty, imageStickers.isEmpty, textStickers.isEmpty, self.currentFilter.applier == nil {
-//      hasEdit = false
+      hasEdit = false
     }
     
-//    var resImage = self.originalImage
+    var resImage = self.originalImage
     let editModel = ZLEditImageModel(drawPaths: self.drawPaths, mosaicPaths: self.mosaicPaths, editRect: self.editRect, angle: self.angle, selectRatio: self.selectRatio, selectFilter: self.currentFilter, textStickers: textStickers, imageStickers: imageStickers)
-//    if hasEdit {
-//      resImage = self.buildImage()
-//      resImage = resImage.clipImage(self.angle, self.editRect) ?? resImage
-//      if let resizeImage = resImage.resize_vI(CGSize(width: resImage.size.width / 2, height: resImage.size.height / 2)) {
-//        resImage = resizeImage
-//      }
-//    }
-//    self.editFinishBlock?(resImage, editModel)
-    self.editFinishBlock?(originalImage, editModel)
+    if hasEdit {
+      resImage = self.buildImage()
+      resImage = resImage.clipImage(self.angle, self.editRect) ?? resImage
+      
+      // Resize edited image
+      //      if let resizeImage = resImage.resize_vI(CGSize(width: resImage.size.width / 2, height: resImage.size.height / 2)) {
+      //        resImage = resizeImage
+      //      }
+    }
+    self.editFinishBlock?(resImage, editModel)
     
     self.dismiss(animated: self.animateDismiss, completion: nil)
   }
