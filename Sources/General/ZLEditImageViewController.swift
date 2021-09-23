@@ -1278,26 +1278,27 @@ class ZLEditToolCell: UICollectionViewCell {
     didSet {
       switch toolType {
       case .draw?:
-        self.icon.image = getImage("zl_drawLine")
-        self.icon.highlightedImage = getImage("zl_drawLine_selected")
+        self.icon.image = getImage("zl_drawLine")?.withRenderingMode(.alwaysOriginal)
+        self.icon.highlightedImage = getImage("zl_drawLine_selected")?.withRenderingMode(.alwaysTemplate)
       case .clip?:
-        self.icon.image = getImage("zl_clip")
-        self.icon.highlightedImage = getImage("zl_clip")
+        self.icon.image = getImage("zl_clip")?.withRenderingMode(.alwaysOriginal)
+        self.icon.highlightedImage = getImage("zl_clip")?.withRenderingMode(.alwaysTemplate)
       case .imageSticker?:
-        self.icon.image = getImage("zl_imageSticker")
-        self.icon.highlightedImage = getImage("zl_imageSticker")
+        self.icon.image = getImage("zl_imageSticker")?.withRenderingMode(.alwaysOriginal)
+        self.icon.highlightedImage = getImage("zl_imageSticker")?.withRenderingMode(.alwaysTemplate)
       case .textSticker?:
-        self.icon.image = getImage("zl_textSticker")
-        self.icon.highlightedImage = getImage("zl_textSticker")
+        self.icon.image = getImage("zl_textSticker")?.withRenderingMode(.alwaysOriginal)
+        self.icon.highlightedImage = getImage("zl_textSticker")?.withRenderingMode(.alwaysTemplate)
       case .mosaic?:
-        self.icon.image = getImage("zl_mosaic")
-        self.icon.highlightedImage = getImage("zl_mosaic_selected")
+        self.icon.image = getImage("zl_mosaic")?.withRenderingMode(.alwaysOriginal)
+        self.icon.highlightedImage = getImage("zl_mosaic_selected")?.withRenderingMode(.alwaysTemplate)
       case .filter?:
-        self.icon.image = getImage("zl_filter")
-        self.icon.highlightedImage = getImage("zl_filter_selected")
+        self.icon.image = getImage("zl_filter")?.withRenderingMode(.alwaysOriginal)
+        self.icon.highlightedImage = getImage("zl_filter_selected")?.withRenderingMode(.alwaysTemplate)
       default:
         break
       }
+      self.icon.tintColor = ZLImageEditorConfiguration.default().editDoneBtnBgColor
     }
   }
   
