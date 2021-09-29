@@ -140,6 +140,9 @@ public class ZLImageEditorConfiguration: NSObject {
   /// The title of done button in Text Editing
   @objc public var doneBtnTitleForTextEditing = "Done"
   
+  /// The title of revert button in Clip Editing
+  @objc public var revertBtnTitleForClipEditing = "Undo"
+  
 }
 
 
