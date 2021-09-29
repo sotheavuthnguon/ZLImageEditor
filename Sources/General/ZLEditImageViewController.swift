@@ -1278,23 +1278,23 @@ class ZLEditToolCell: UICollectionViewCell {
     didSet {
       switch toolType {
       case .draw?:
-        self.icon.image = getImage("zl_drawLine")?.withRenderingMode(.alwaysOriginal)
-        self.icon.highlightedImage = getImage("zl_drawLine_selected")?.withRenderingMode(.alwaysTemplate)
+        self.icon.image = getImage("ic_drawLine")?.withRenderingMode(.alwaysOriginal)
+        self.icon.highlightedImage = getImage("ic_drawLine_selected")?.withRenderingMode(.alwaysTemplate)
       case .clip?:
-        self.icon.image = getImage("zl_clip")?.withRenderingMode(.alwaysOriginal)
-        self.icon.highlightedImage = getImage("zl_clip")?.withRenderingMode(.alwaysTemplate)
+        self.icon.image = getImage("ic_clip")?.withRenderingMode(.alwaysOriginal)
+        self.icon.highlightedImage = getImage("ic_clip")?.withRenderingMode(.alwaysTemplate)
       case .imageSticker?:
-        self.icon.image = getImage("zl_imageSticker")?.withRenderingMode(.alwaysOriginal)
-        self.icon.highlightedImage = getImage("zl_imageSticker")?.withRenderingMode(.alwaysTemplate)
+        self.icon.image = getImage("ic_imageSticker")?.withRenderingMode(.alwaysOriginal)
+        self.icon.highlightedImage = getImage("ic_imageSticker")?.withRenderingMode(.alwaysTemplate)
       case .textSticker?:
-        self.icon.image = getImage("zl_textSticker")?.withRenderingMode(.alwaysOriginal)
-        self.icon.highlightedImage = getImage("zl_textSticker")?.withRenderingMode(.alwaysTemplate)
+        self.icon.image = getImage("ic_textSticker")?.withRenderingMode(.alwaysOriginal)
+        self.icon.highlightedImage = getImage("ic_textSticker")?.withRenderingMode(.alwaysTemplate)
       case .mosaic?:
         self.icon.image = getImage("zl_mosaic")?.withRenderingMode(.alwaysOriginal)
         self.icon.highlightedImage = getImage("zl_mosaic_selected")?.withRenderingMode(.alwaysTemplate)
       case .filter?:
-        self.icon.image = getImage("zl_filter")?.withRenderingMode(.alwaysOriginal)
-        self.icon.highlightedImage = getImage("zl_filter_selected")?.withRenderingMode(.alwaysTemplate)
+        self.icon.image = getImage("ic_filter")?.withRenderingMode(.alwaysOriginal)
+        self.icon.highlightedImage = getImage("ic_filter_selected")?.withRenderingMode(.alwaysTemplate)
       default:
         break
       }
