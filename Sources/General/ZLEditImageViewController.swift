@@ -1279,7 +1279,7 @@ class ZLEditToolCell: UICollectionViewCell {
       switch toolType {
       case .draw?:
         self.icon.image = getImage("ic_drawLine")?.withRenderingMode(.alwaysOriginal)
-        self.icon.highlightedImage = getImage("ic_drawLine_selected")?.withRenderingMode(.alwaysTemplate)
+        self.icon.highlightedImage = getImage("ic_drawLine")?.withRenderingMode(.alwaysTemplate)
       case .clip?:
         self.icon.image = getImage("ic_clip")?.withRenderingMode(.alwaysOriginal)
         self.icon.highlightedImage = getImage("ic_clip")?.withRenderingMode(.alwaysTemplate)
@@ -1291,10 +1291,10 @@ class ZLEditToolCell: UICollectionViewCell {
         self.icon.highlightedImage = getImage("ic_textSticker")?.withRenderingMode(.alwaysTemplate)
       case .mosaic?:
         self.icon.image = getImage("zl_mosaic")?.withRenderingMode(.alwaysOriginal)
-        self.icon.highlightedImage = getImage("zl_mosaic_selected")?.withRenderingMode(.alwaysTemplate)
+        self.icon.highlightedImage = getImage("zl_mosaic")?.withRenderingMode(.alwaysTemplate)
       case .filter?:
         self.icon.image = getImage("ic_filter")?.withRenderingMode(.alwaysOriginal)
-        self.icon.highlightedImage = getImage("ic_filter_selected")?.withRenderingMode(.alwaysTemplate)
+        self.icon.highlightedImage = getImage("ic_filter")?.withRenderingMode(.alwaysTemplate)
       default:
         break
       }

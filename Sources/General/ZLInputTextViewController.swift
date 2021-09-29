@@ -96,10 +96,12 @@ class ZLInputTextViewController: UIViewController {
     }
     
     let btnY = insets.top + 20
-    let cancelBtnW = localLanguageTextValue(.cancel).boundingRect(font: ZLImageEditorLayout.bottomToolTitleFont, limitSize: CGSize(width: .greatestFiniteMagnitude, height: ZLImageEditorLayout.bottomToolBtnH)).width + 20
+    let cancelBtnW = ZLImageEditorConfiguration.default().cancelBtnTitleForTextEditing.boundingRect(font: ZLImageEditorLayout.bottomToolTitleFont, limitSize: CGSize(width: .greatestFiniteMagnitude, height: ZLImageEditorLayout.bottomToolBtnH)).width + 20
+//    let cancelBtnW = localLanguageTextValue(.cancel).boundingRect(font: ZLImageEditorLayout.bottomToolTitleFont, limitSize: CGSize(width: .greatestFiniteMagnitude, height: ZLImageEditorLayout.bottomToolBtnH)).width + 20
     self.cancelBtn.frame = CGRect(x: 15, y: btnY, width: cancelBtnW, height: ZLImageEditorLayout.bottomToolBtnH)
     
-    let doneBtnW = localLanguageTextValue(.done).boundingRect(font: ZLImageEditorLayout.bottomToolTitleFont, limitSize: CGSize(width: .greatestFiniteMagnitude, height: ZLImageEditorLayout.bottomToolBtnH)).width + 20
+    let doneBtnW = ZLImageEditorConfiguration.default().doneBtnTitleForTextEditing.boundingRect(font: ZLImageEditorLayout.bottomToolTitleFont, limitSize: CGSize(width: .greatestFiniteMagnitude, height: ZLImageEditorLayout.bottomToolBtnH)).width + 20
+//    let doneBtnW = localLanguageTextValue(.done).boundingRect(font: ZLImageEditorLayout.bottomToolTitleFont, limitSize: CGSize(width: .greatestFiniteMagnitude, height: ZLImageEditorLayout.bottomToolBtnH)).width + 20
     self.doneBtn.frame = CGRect(x: view.bounds.width - 20 - doneBtnW, y: btnY, width: doneBtnW, height: ZLImageEditorLayout.bottomToolBtnH)
     
     self.textView.frame = CGRect(x: 20, y: cancelBtn.frame.maxY + 20, width: view.bounds.width - 40, height: 150)
