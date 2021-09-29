@@ -419,7 +419,7 @@ public class ZLEditImageViewController: UIViewController {
     self.bottomShadowView.layer.addSublayer(self.bottomShadowLayer)
     
     let editToolLayout = UICollectionViewFlowLayout()
-    editToolLayout.itemSize = CGSize(width: 24, height: 24) // CGSize(width: 30, height: 30)
+    editToolLayout.itemSize = CGSize(width: 30, height: 30)
     editToolLayout.minimumLineSpacing = 20
     editToolLayout.minimumInteritemSpacing = 20
     editToolLayout.scrollDirection = .horizontal
