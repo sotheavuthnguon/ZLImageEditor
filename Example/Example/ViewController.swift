@@ -257,6 +257,7 @@ class ViewController: UIViewController {
     // Provide a image sticker container view
     print("Image size before editing: \(image.size)")
     config.imageStickerContainerView = ImageStickerContainerView()
+    config.editDoneBtnBgColor = .orange
     // Custom filter
     //        ZLImageEditorConfiguration.default().filters = [.normal, .apply1977, ZLFilter(name: "Custom", applier: CustomFilter.hazeRemovalFilter)]
     

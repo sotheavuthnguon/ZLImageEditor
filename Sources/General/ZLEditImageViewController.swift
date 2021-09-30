@@ -122,6 +122,8 @@ public class ZLEditImageViewController: UIViewController {
   
   var drawColorCollectionView: UICollectionView!
   
+  var drawLineWidthSlider: UISlider!
+  
   var filterCollectionView: UICollectionView!
   
   var ashbinView: UIView!
@@ -278,8 +280,10 @@ public class ZLEditImageViewController: UIViewController {
     self.bottomShadowView.frame = CGRect(x: 0, y: self.view.frame.height-140-insets.bottom, width: self.view.frame.width, height: 140+insets.bottom)
     self.bottomShadowLayer.frame = self.bottomShadowView.bounds
     
-    self.drawColorCollectionView.frame = CGRect(x: 20, y: 20, width: self.view.frame.width - 80, height: 50)
-    self.revokeBtn.frame = CGRect(x: self.view.frame.width - 15 - 35, y: 30, width: 35, height: 30)
+    self.drawLineWidthSlider.frame = CGRect(x: 20, y: 0, width: self.view.frame.width - 40, height: 30)
+    
+    self.drawColorCollectionView.frame = CGRect(x: 20, y: 30, width: self.view.frame.width - 80, height: 50)
+    self.revokeBtn.frame = CGRect(x: self.view.frame.width - 15 - 35, y: 40, width: 35, height: 30)
     
     self.filterCollectionView.frame = CGRect(x: 20, y: 0, width: self.view.frame.width-40, height: ZLEditImageViewController.filterColViewH)
     
@@ -456,6 +460,17 @@ public class ZLEditImageViewController: UIViewController {
     self.drawColorCollectionView.showsHorizontalScrollIndicator = false
     self.bottomShadowView.addSubview(self.drawColorCollectionView)
     
+    self.drawLineWidthSlider = UISlider(frame: .zero)
+    self.drawLineWidthSlider.isHidden = true
+//    self.drawLineWidthSlider.setMinimumTrackImage(getImage("ic_max_draw_line_width")?.withRenderingMode(.alwaysTemplate), for: [])
+//    self.drawLineWidthSlider.setMaximumTrackImage(getImage("ic_max_draw_line_width"), for: [])
+    self.drawLineWidthSlider.tintColor = ZLImageEditorConfiguration.default().editDoneBtnBgColor
+    self.drawLineWidthSlider.value = 1
+    self.drawLineWidthSlider.minimumValue = 1
+    self.drawLineWidthSlider.maximumValue = 10
+    self.drawLineWidthSlider.addTarget(self, action: #selector(self.handleSliderWithChange), for: .valueChanged)
+    self.bottomShadowView.addSubview(self.drawLineWidthSlider)
+    
     ZLDrawColorCell.zl_register(self.drawColorCollectionView)
     
     let filterLayout = UICollectionViewFlowLayout()
@@ -562,6 +577,10 @@ public class ZLEditImageViewController: UIViewController {
     }
   }
   
+  @objc private func handleSliderWithChange(_ slider: UISlider) {
+    drawLineWidth = CGFloat(5 * slider.value)
+  }
+  
   func rotationImageView() {
     let transform = CGAffineTransform(rotationAngle: self.angle.toPi)
     self.imageView.transform = transform
@@ -581,6 +600,7 @@ public class ZLEditImageViewController: UIViewController {
       self.selectedTool = nil
     }
     self.drawColorCollectionView.isHidden = !isSelected
+    self.drawLineWidthSlider.isHidden = !isSelected
     self.revokeBtn.isHidden = !isSelected
     self.revokeBtn.isEnabled = self.drawPaths.count > 0
     self.filterCollectionView.isHidden = true
@@ -641,6 +661,7 @@ public class ZLEditImageViewController: UIViewController {
     }
     
     self.drawColorCollectionView.isHidden = true
+    self.drawLineWidthSlider.isHidden = true
     self.filterCollectionView.isHidden = true
     self.revokeBtn.isHidden = !isSelected
     self.revokeBtn.isEnabled = self.mosaicPaths.count > 0
@@ -655,6 +676,7 @@ public class ZLEditImageViewController: UIViewController {
     }
     
     self.drawColorCollectionView.isHidden = true
+    self.drawLineWidthSlider.isHidden = true
     self.revokeBtn.isHidden = true
     self.filterCollectionView.isHidden = !isSelected
   }
